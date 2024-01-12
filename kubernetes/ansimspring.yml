@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: AnsimSpring-deployment
+  name: ansimspring-deployment
 spec:
   replicas: 1
   selector:
@@ -15,18 +15,18 @@ spec:
     spec:
       containers:
       - name: AnsimSpring
-        image: docker.io/lee20jin/AnsimSpring_AnsimSpring:{{VERSION}}
+        image: docker.io/lee20jin/ansimspring_ansimspring:{{VERSION}}
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
       imagePullSecrets:
-      - name: miniboard-secret
+      - name: ansimspring-secret
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: AnsimSpring-service
+  name: ansimspring-service
 spec:
   ports:
   - port: 8080
