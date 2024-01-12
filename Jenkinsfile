@@ -26,7 +26,7 @@ pipeline {
         stage("Docker Image Build") {
            steps {
                sh "docker build -t lee20jin/apache2_ansimspring:${BUILD_NUMBER} ./docker/apache2/"
-               sh "docker build -t lee20jin/ansimspring_ansimspring:${BUILD_NUMBER} ./docker/AnsimSping/"
+               sh "docker build -t lee20jin/ansimspring_ansimspring:${BUILD_NUMBER} ./docker/AnsimSpring/"
            }
         }
         stage("Docker Image Push") {
@@ -49,7 +49,7 @@ pipeline {
         stage("Deploy") {
            steps {
                sh "sed -i 's/{{VERSION}}/${BUILD_NUMBER}/g' ./kubernetes/apache2.yml"
-               sh "sed -i 's/{{VERSION}}/${BUILD_NUMBER}/g' ./kubernetes/AnsimSping.yml"
+               sh "sed -i 's/{{VERSION}}/${BUILD_NUMBER}/g' ./kubernetes/AnsimSpring.yml"
                sh "kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission"
                sh "kubectl apply -f ./kubernetes/AnsimSping.yml"
                sh "kubectl apply -f ./kubernetes/apache2.yml"
@@ -60,7 +60,7 @@ pipeline {
                     slackSend (
                         channel: "#jenkins",
                         color: "#2C953C",
-                        message: "AnsimSping 배포가 성공하였습니다.????"
+                        message: "AnsimSpring 배포가 성공하였습니다.????"
                     )
                     echo "Completed Server Deploy"
                 }
@@ -68,7 +68,7 @@ pipeline {
                     slackSend (
                         channel: "#jenkins",
                         color: "#FF3232",
-                        message: "AnsimSping 배포가 실패하였습니다."
+                        message: "AnsimSpring 배포가 실패하였습니다."
                     )
                     echo "Fail Server Deploy"
                 }
