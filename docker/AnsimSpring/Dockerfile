@@ -1,4 +1,4 @@
 FROM openjdk:17
-COPY MiniBoard-0.0.1-SNAPSHOT.jar smboard.jar
-ENTRYPOINT ["java", "-jar", "smboard.jar"]
+COPY Ansim-0.0.1-SNAPSHOT.jar Ansim.jar
+ENTRYPOINT ["java", "-jar", "Ansim.jar"]
 EXPOSE 8080
