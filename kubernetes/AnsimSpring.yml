@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: AnsimSpring-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: AnsimSpring
+  template:
+    metadata:
+      name: AnsimSpring
+      labels:
+        app: AnsimSpring
+    spec:
+      containers:
+      - name: AnsimSpring
+        image: docker.io/lee20jin/AnsimSpring_AnsimSpring:{{VERSION}}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: miniboard-secret
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: AnsimSpring-service
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 30002
+  selector:
+    app: AnsimSpring
+  type: NodePort
