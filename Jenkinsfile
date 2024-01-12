@@ -15,7 +15,7 @@ pipeline {
         stage("Build") {
            steps {
                sh "./gradlew build"
-               sh "cp ./build/libs/AnsimSpring-0.0.1-SNAPSHOT.jar ./docker/AnsimSpring/"
+               sh "cp ./build/libs/Ansim-0.0.1-SNAPSHOT.jar ./docker/AnsimSpring/"
            } 
         }
         stage("Docker Login") {
