@@ -51,7 +51,7 @@ pipeline {
                sh "sed -i 's/{{VERSION}}/${BUILD_NUMBER}/g' ./kubernetes/apache2.yml"
                sh "sed -i 's/{{VERSION}}/${BUILD_NUMBER}/g' ./kubernetes/AnsimSpring.yml"
                sh "kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission"
-               sh "kubectl apply -f ./kubernetes/AnsimSping.yml"
+               sh "kubectl apply -f ./kubernetes/AnsimSpring.yml"
                sh "kubectl apply -f ./kubernetes/apache2.yml"
                sh "kubectl apply -f ./kubernetes/ingress.yml"
            } 
