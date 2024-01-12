@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: apache
-        image: docker.io/lee20jin/apache2_AnsimSpring:{{VERSION}}
+        image: docker.io/lee20jin/apache2_ansimspring:{{VERSION}}
         imagePullPolicy: Always
         ports:
         - containerPort: 80
