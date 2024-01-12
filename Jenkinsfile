@@ -32,7 +32,7 @@ pipeline {
         stage("Docker Image Push") {
            steps {
                sh "docker push lee20jin/apache2_ansimspring:${BUILD_NUMBER}"
-               sh "docker push lee20jin/ansimsping_ansimspring:${BUILD_NUMBER}" 
+               sh "docker push lee20jin/ansimspring_ansimspring:${BUILD_NUMBER}" 
            } 
         }
         stage("Docker Image Clean up") {
