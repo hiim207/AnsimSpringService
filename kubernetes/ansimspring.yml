@@ -6,15 +6,15 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: AnsimSpring
+      app: ansimspring
   template:
     metadata:
-      name: AnsimSpring
+      name: ansimspring
       labels:
-        app: AnsimSpring
+        app: ansimspring
     spec:
       containers:
-      - name: AnsimSpring
+      - name: ansimspring
         image: docker.io/lee20jin/ansimspring_ansimspring:{{VERSION}}
         imagePullPolicy: Always
         ports:
@@ -33,5 +33,5 @@ spec:
     targetPort: 8080
     nodePort: 30002
   selector:
-    app: AnsimSpring
+    app: ansimspring
   type: NodePort
