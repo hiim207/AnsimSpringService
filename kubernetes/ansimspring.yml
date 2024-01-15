@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: ansimspring
-        image: docker.io/lee20jin/ansimspring_ansimspring:{{VERSION}}
+        image: docker.io/judith/ansimspring_ansimspring:{{VERSION}}
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
